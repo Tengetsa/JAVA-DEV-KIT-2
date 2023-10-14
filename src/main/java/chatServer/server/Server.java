@@ -7,20 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Server {
-    public static final String LOG_PATH = "src/main/java/server/log.txt";
-
-    private List<Client> clientList;
+    private final List<Client> clientList;
     private boolean work;
-    private ServerView serverView;
-    private FileRepository repository;
+    private final ServerView serverView;
+    private final FileRepository repository;
 
     public Server(ServerView serverView, FileRepository repository) {
         this.serverView = serverView;
         this.repository = repository;
         clientList = new ArrayList<>();
     }
-
-
 
     public boolean connectUser(Client client){
         if (!work){
@@ -65,16 +61,11 @@ public class Server {
         }
     }
 
-
     private void answerAll(String text){
         for (Client client: clientList){
             client.printText(text);
         }
     }
-
-//    public void saveDataInLog(String data) {
-//        repository.saveInLog(data);
-//    }
 
     public void message(String text){
         if (!work){

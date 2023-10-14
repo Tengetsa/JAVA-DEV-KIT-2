@@ -122,5 +122,4 @@ public class ClientGUI extends JFrame implements ClientView {
             disconnectFromServer();
         }
     }
-
 }
